@@ -2,11 +2,11 @@
 
 - hosts: all
   become: true
-  tasks:
+  pre_tasks:
 
   - name: install updates
     apt:
-      update_only: yes
+      upgrade: dist
       update_cache: yes
 
 - hosts: test
