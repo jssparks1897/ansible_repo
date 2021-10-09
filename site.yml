@@ -8,7 +8,10 @@
     apt:
       update_only: yes
       update_cache: yes
-    when: ansible_distribution == "Ubuntu"
+
+- hosts: test
+  become: true
+  tasks:
 
   - name: Install Apache2 and php Support packages
     package:
@@ -16,5 +19,4 @@
         - apache2
         - libapache2-mod-php
       state: latest
-      update_cache: yes
     when: ansible_distribution == "Ubuntu"
